@@ -1,13 +1,53 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@import url('https://fonts.googleapis.com/css2?family=Nuosu+SIL&display=swap');
+
+body{
+  font-family: 'Nuosu SIL', serif;
+  background-color: #353535;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+header {
+	background-color: #284B63;
+	height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
+
+.header-title {
+	color: #fff;
+  font-size: 40px;
+}
+
+
+.note-container{
+  padding: 5px;
+  margin: 0 auto 15px auto;
+  background-color: #fff;
+  color: #353535;
+  display: flex;
+}
+
+.title-description-container{
+  width: 90%;
+  padding-right: 10px;
+}
+
+.note-title{
+  font-weight: bold;
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.note-description{
+  font-size: 16px;
+  margin-bottom: 5px;
+}
+
+
+
+button{
+  height: 35px;
+  width: 35px;
+  align-self: center;
+}
+
