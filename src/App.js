@@ -1,27 +1,15 @@
 import Header from "./components/Header";
-import Note from "./components/Note";
 import NoteFeed from "./components/NoteFeed";
+import {NoteProvider} from './context/NoteContext'
 
-const notes = [
-  {
-  name: 'Do Laundry',
-  description: 'Collect laundry then wash it.',
-  isComplete: false
-  },
-  {
-  name: 'Update Registration',
-  description: 'Its 4 months overdue',
-  isComplete: false
-  },
-]
 
 
 function App() {
   return (
-    <>
+    <NoteProvider>
       <Header />
-      <NoteFeed notes={notes}/>
-    </>
+      <NoteFeed/>
+    </NoteProvider>
   );
 }
 
