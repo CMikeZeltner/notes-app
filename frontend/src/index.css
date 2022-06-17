@@ -1,0 +1,128 @@
+@import url('https://fonts.googleapis.com/css2?family=Nuosu+SIL&display=swap');
+
+body {
+	font-family: 'Nuosu SIL', serif;
+	background-color: lightblue;
+}
+
+header {
+	background-color: #284b63;
+	height: 100px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.header-title {
+	color: #fff;
+	font-size: 40px;
+}
+
+.note-container {
+	padding: 5px;
+	margin: 0 auto 0 auto;
+	background-color: #fff;
+	color: #353535;
+	display: flex;
+  border-bottom: 1px solid black;
+}
+
+.title-description-container {
+	width: 90%;
+	padding-right: 10px;
+	word-wrap: break-word;
+}
+
+.note-title {
+	font-weight: bold;
+	font-size: 20px;
+	margin-bottom: 10px;
+}
+
+.note-description {
+	font-size: 16px;
+	margin-bottom: 5px;
+
+}
+
+.btn {
+	width: 100%;
+	height: 50px;
+  font-size: 20px;
+  background-color: #353535;
+  color: #fff;
+  display: block;
+  margin: 0 auto;
+}
+
+.delete-edit-button{
+    width: 30px;
+    height: 30px;
+    align-self: center;
+	margin-right: 10px;
+}
+
+.add-note-title{
+  text-align: center;
+  font-weight: bold;
+  text-decoration: underline;
+  font-size: 25px;
+  margin-bottom: 10px;
+}
+
+.add-note-form{
+  text-align: center;
+  display: block;
+}
+
+.add-note-form > *{
+  display: block;
+  margin: 0 auto 15px auto;
+}
+
+.add-note-form > input {
+	font-size: 20px;
+}
+
+.add-note-form > input, textarea{
+  border: 2px solid black;
+  width: 100%;
+  height: 30px;
+  font-family: 'Nuosu SIL', serif;
+
+}
+
+
+.modal {
+  font-size: 12px;
+}
+.modal > .header {
+  width: 100%;
+  border-bottom: 1px solid gray;
+  font-size: 18px;
+  text-align: center;
+  padding: 5px;
+}
+.modal > .content {
+  width: 100%;
+  padding: 10px 5px;
+}
+.modal > .actions {
+  width: 100%;
+  padding: 10px 5px;
+  margin: auto;
+  text-align: center;
+}
+.modal > .close {
+  cursor: pointer;
+  position: absolute;
+  display: block;
+  padding: 2px 5px;
+  line-height: 20px;
+  right: -10px;
+  top: -10px;
+  font-size: 24px;
+  background: #ffffff;
+  border-radius: 18px;
+  border: 1px solid #cfcece;
+}

@@ -1,10 +1,10 @@
-import {FaEdit} from 'react-icons/fa'
+import {FaTrash, FaEdit} from 'react-icons/fa'
 import {useContext} from 'react'
 import NoteContext from '../context/NoteContext'
 
 function Note({note}) {
 
-    const {deleteNote} = useContext(NoteContext)
+    const {deleteNote, editNote} = useContext(NoteContext)
 
   return (
     <div className="note-container">
@@ -13,9 +13,14 @@ function Note({note}) {
             <h2 className="note-description">Description: {note.description}</h2>
         </div>
         <button 
-        className=''
+        className='delete-edit-button'
+        onClick={() => editNote(note)}>
+            <FaEdit />
+        </button>
+        <button 
+        className='delete-edit-button'
         onClick={() => deleteNote(note.id)}>
-            <FaEdit/>
+            <FaTrash />
         </button>
     </div>
   )

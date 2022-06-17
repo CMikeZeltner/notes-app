@@ -1,5 +1,5 @@
 import Note from "./Note"
-import {useState, useContext} from 'react'
+import {useState, useContext, useEffect} from 'react'
 import NoteContext from "../context/NoteContext"
 import Modal from 'react-modal'
 import { v4 as uuidv4 } from "uuid"
@@ -10,6 +10,7 @@ const customStyles = {
         left: '50%',
         right: 'auto',
         bottom: 'auto',
+        width: '100%',
         marginRight: '-50%',
         transform: 'translate(-50%, -50%)',
       },
@@ -23,7 +24,7 @@ function NoteFeed() {
     const [title, setTitle] = useState('')
     const [description, setDescription] = useState('')
 
-    const {addNotes} = useContext(NoteContext)
+    const {addNote, noteEdit} = useContext(NoteContext)
   
     const handleSubmit = (e) =>{
        e.preventDefault()
@@ -33,7 +34,7 @@ function NoteFeed() {
             description
         }
 
-        addNotes(newNote)
+        addNote(newNote)
         closeModal()
         
     }
@@ -53,15 +54,25 @@ function NoteFeed() {
     }
 
     const closeModal = () => {
+        setTitle('')
+        setDescription('')
         setModalIsOpen(false)
     }
 
-
+    useEffect(() => {
+        if(noteEdit.edit === true){
+            setTitle(noteEdit.note.title)
+            setDescription(noteEdit.note.description)
+            openModal()
+        }
+    }, [noteEdit])
+    
 
 
   return (
       <>
-      <button onClick={openModal}>Add Note</button>
+      <button className='btn'
+        onClick={openModal}>Add Note</button>
         <div className="notefeed-container">
             {notes.map((note) => (
                 <Note key={note.id} note={note}/>
@@ -75,17 +86,20 @@ function NoteFeed() {
             onRequestClose={closeModal}
             style={customStyles}
             >
-                <form>
+                <form className="add-note-form">
+                    <h2 className="add-note-title">Add New Note</h2>
                     <label htmlFor="title">Title</label>
                     <input onChange={handleTitleChange} 
                     type="text" 
                     id='title'
                     value={title} />
                     <label htmlFor="description">Description</label>
-                    <input onChange={handleDescriptionChange} type="description" 
+                    <textarea onChange={handleDescriptionChange}  
                     id='description'
                     value={description} />
-                    <button type='submit' 
+                    <button 
+                    className='btn'
+                    type='submit' 
                     onClick={handleSubmit}>Submit</button>
                 </form>
             </Modal>

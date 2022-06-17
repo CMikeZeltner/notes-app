@@ -11,13 +11,25 @@ export const NoteProvider = ({children}) =>{
         description: 'this is from context'
     }])
 
+
+    const [noteEdit, setNoteEdit] = useState({
+        note: {},
+        edit: false
+    })
+
     const deleteNote = (id) => {
-        setNotes(notes.filter((note) => note.id !== id))
+        setNotes(notes.filter((note) => note.id !== id))    
     }
 
-    const addNotes = (newNote) => {
-        setNotes([...notes, newNote])
-        
+    const addNote = (newNote) => {
+        setNotes([...notes, newNote])   
+    }
+
+    const editNote = (note) => {
+        setNoteEdit({
+            note,
+            edit: true
+        })
     }
 
 
@@ -25,7 +37,9 @@ export const NoteProvider = ({children}) =>{
     value={{
         notes,
         deleteNote,
-        addNotes
+        addNote,
+        editNote,
+        noteEdit,
     }}>
     {children}
 </NoteContext.Provider>
